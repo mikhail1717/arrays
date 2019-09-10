@@ -1,10 +1,13 @@
 package main
 
-import ("fmt"
-		"math/rand"
-		"sort")
+import (
+	"fmt"
+	"math/rand"
+	"reflect"
+	"sort"
+)
 
-	func main() {
+ func main() {
 		var a = readNumber()
 		var b = readNumber()
 
@@ -13,7 +16,9 @@ import ("fmt"
 
 						arr1 = append(arr1, rand.Int() )
 							}
-		sort.Ints(arr1)
+		sort.Slice(arr1, func(i, j int) bool {
+			return arr1[i] < arr1 [j]
+		})
 
 			var arr2= []int {}
 			for p := 0; p < b; p++ {
@@ -21,12 +26,13 @@ import ("fmt"
 			arr2 = append(arr2, rand.Int())
 
 		}
-			sort.Ints(arr2)
+	 sort.Slice(arr2, func(i, j int) bool {
+		 return arr2[i] < arr2 [j]
+	 })
 
 			fmt.Println(arr1)
 			fmt.Println(arr2)
-
-
+				fmt.Println(reflect.DeepEqual(arr1, arr2))
 
 }
 func readNumber() int {
