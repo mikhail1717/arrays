@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 
+	"github.com/mikhail1717/hw/tasks/arrays"
 	"github.com/mikhail1717/hw/util"
 )
 
@@ -25,25 +26,14 @@ func main() {
 	fmt.Println("")
 	fmt.Println("Сортировка ")
 
-	bubbleSort(arr1)
-	bubbleSort(arr2)
+	arrays.BubbleSort(arr1)
+	arrays.BubbleSort(arr2)
 
 	fmt.Println("")
 	fmt.Println(arr1)
 	fmt.Println(arr2)
 	fmt.Println("")
 	compare(arr1, arr2)
-
-}
-
-func bubbleSort(array []int) {
-	for i := 0; i < len(array); i++ {
-		for j := 0; j < len(array)-1-i; j++ {
-			if array[j] > array[j+1] {
-				array[j], array[j+1] = array[j+1], array[j]
-			}
-		}
-	}
 }
 
 func compare(arr1, arr2 []int) {
