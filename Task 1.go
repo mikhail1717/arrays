@@ -3,11 +3,13 @@ package main
 import (
 	"fmt"
 	"math/rand"
+
+	"github.com/mikhail1717/hw/util"
 )
 
 func main() {
-	var a = readNumber()
-	var b = readNumber()
+	var a = util.ReadNumber()
+	var b = util.ReadNumber()
 
 	var arr1 []int
 	for i := 0; i < a; i++ {
@@ -34,12 +36,6 @@ func main() {
 	fmt.Println("")
 	compare(arr1, arr2)
 
-}
-
-func readNumber() int {
-	var a int
-	_, _ = fmt.Scanln(&a)
-	return a
 }
 
 func bubbleSort(array []int) {
