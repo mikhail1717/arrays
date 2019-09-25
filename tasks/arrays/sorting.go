@@ -9,3 +9,7 @@ func BubbleSort(array []int) {
 		}
 	}
 }
+
+func LazySort(array []int) {
+	// well, fuck you
+}

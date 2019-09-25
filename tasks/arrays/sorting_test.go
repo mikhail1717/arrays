@@ -9,8 +9,13 @@ func TestBubbleSort(t *testing.T) {
 	testSortFunction(t, BubbleSort)
 }
 
+func TestNotWorkingFunc(t *testing.T) {
+	// t.Skip("Uncomment this line to skip the test")
+	testSortFunction(t, LazySort)
+}
+
 func testSortFunction(t *testing.T, fnc func([]int)) {
-	var arr = shuffledArrayOfLength(1000)
+	var arr = shuffledArrayOfLength(10)
 	fnc(arr)
 	if !isSorted(arr) {
 		t.Errorf("array is not sorted: %v", arr)
