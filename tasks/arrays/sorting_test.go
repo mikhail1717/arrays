@@ -9,9 +9,9 @@ func TestBubbleSort(t *testing.T) {
 	testSortFunction(t, BubbleSort)
 }
 
-func TestNotWorkingFunc(t *testing.T) {
-	// t.Skip("Uncomment this line to skip the test")
-	testSortFunction(t, LazySort)
+func TestQuickSort(t *testing.T) {
+	//t.Skip("Uncomment this line to skip the test")
+	testSortFunction(t, BubbleSort)
 }
 
 func testSortFunction(t *testing.T, fnc func([]int)) {
