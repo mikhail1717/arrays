@@ -26,16 +26,15 @@ func main() {
 	fmt.Println("")
 	fmt.Println("Сортировка ")
 
-	arrays.QuickSort(arr1)
+	arrays.MergeSort(arr1)
 	arrays.BubbleSort(arr2)
 
 	fmt.Println("")
 	fmt.Println(arr1)
 	fmt.Println(arr2)
 	fmt.Println("")
-	compare(arr1, arr2)
+	//compare(arr1, arr2)
 }
-
 func compare(arr1, arr2 []int) {
 	for i := 0; i < len(arr1) || i < len(arr2); i++ {
 		if len(arr1) <= i {

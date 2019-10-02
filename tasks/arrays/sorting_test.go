@@ -11,11 +11,15 @@ func TestBubbleSort(t *testing.T) {
 
 func TestQuickSort(t *testing.T) {
 	//t.Skip("Uncomment this line to skip the test")
-	testSortFunction(t, BubbleSort)
+	testSortFunction(t, QuickSort)
 }
 
-func testSortFunction(t *testing.T, fnc func([]int)) {
-	var arr = shuffledArrayOfLength(10)
+func TestMergeSort(t *testing.T) {
+	testSortFunction(t, MergeSort)
+}
+
+func testSortFunction(t *testing.T, fnc func([]int) []int) {
+	var arr = shuffledArrayOfLength(100)
 	fnc(arr)
 	if !isSorted(arr) {
 		t.Errorf("array is not sorted: %v", arr)
