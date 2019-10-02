@@ -14,10 +14,13 @@ func TestQuickSort(t *testing.T) {
 	testSortFunction(t, QuickSort)
 }
 
-func TestMergeSort(t *testing.T) {
-	testSortFunction(t, MergeSort)
-}
+//func TestMergeSort(t *testing.T) {
+//	testSortFunction(t, MergeSort)
+//}
 
+func TestHeapSort(t *testing.T) {
+	testSortFunction(t, HeapSort)
+}
 func testSortFunction(t *testing.T, fnc func([]int) []int) {
 	var arr = shuffledArrayOfLength(100)
 	fnc(arr)

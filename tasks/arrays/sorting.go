@@ -71,3 +71,55 @@ func merge(left, right []int) []int {
 	return array
 
 }
+
+func left(i int) int {
+	return 2 * i
+}
+
+func right(i int) int {
+	return 2*i + 1
+}
+
+func parent(i int) int {
+	return i / 2
+}
+
+func maxHeapify(a []int, i int) []int {
+
+	l := left(i) + 1
+	r := right(i) + 1
+	var largest int
+	if l < len(a) && l >= 0 && a[l] > a[i] {
+		largest = l
+	} else {
+		largest = i
+	}
+	if r < len(a) && r >= 0 && a[r] > a[largest] {
+		largest = r
+	}
+	if largest != i {
+		a[i], a[largest] = a[largest], a[i]
+		a = maxHeapify(a, largest)
+	}
+	return a
+}
+
+func buildMaxHeap(a []int) []int {
+	for i := len(a)/2 - 1; i >= 0; i-- {
+
+		a = maxHeapify(a, i)
+	}
+	return a
+}
+
+func HeapSort(a []int) []int {
+
+	a = buildMaxHeap(a)
+	size := len(a)
+	for i := size - 1; i >= 1; i-- {
+		a[0], a[i] = a[i], a[0]
+		size--
+		maxHeapify(a[:size], 0)
+	}
+	return a
+}
