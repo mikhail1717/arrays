@@ -70,25 +70,12 @@ func merge(left, right []int) []int {
 	}
 	fmt.Println(array)
 	return array
-
-}
-
-func left(i int) int {
-	return 2 * i
-}
-
-func right(i int) int {
-	return 2*i + 1
-}
-
-func parent(i int) int {
-	return i / 2
 }
 
 func maxHeapify(a []int, i int) []int {
 
-	l := left(i) + 1
-	r := right(i) + 1
+	l := 2*i + 1
+	r := 2*i + 2
 	var largest int
 	if l < len(a) && l >= 0 && a[l] > a[i] {
 		largest = l
@@ -110,6 +97,8 @@ func buildMaxHeap(a []int) []int {
 
 		a = maxHeapify(a, i)
 	}
+	fmt.Println(a)
+	DisplayHeap(a)
 	return a
 }
 
@@ -122,5 +111,21 @@ func HeapSort(a []int) []int {
 		size--
 		maxHeapify(a[:size], 0)
 	}
+	fmt.Println()
+	fmt.Println("Here is sorted heap:")
+	DisplayHeap(a)
 	return a
+}
+
+func DisplayHeap(heap []int) {
+	for a, b := 0, 1; a < len(heap); a = b {
+		fmt.Println("Print from", a, "to", b)
+		if b < len(heap) {
+			fmt.Println(heap[a:b])
+			b = a*2 + 1
+		} else {
+			fmt.Println(heap[a:])
+			break
+		}
+	}
 }
