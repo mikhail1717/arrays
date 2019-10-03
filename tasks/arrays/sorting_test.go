@@ -1,6 +1,7 @@
 package arrays
 
 import (
+	"fmt"
 	"math/rand"
 	"testing"
 )
@@ -14,16 +15,17 @@ func TestQuickSort(t *testing.T) {
 	testSortFunction(t, QuickSort)
 }
 
-//func TestMergeSort(t *testing.T) {
-//	testSortFunction(t, MergeSort)
-//}
+func TestMergeSort(t *testing.T) {
+	testSortFunction(t, MergeSort)
+}
 
 func TestHeapSort(t *testing.T) {
 	testSortFunction(t, HeapSort)
 }
 func testSortFunction(t *testing.T, fnc func([]int) []int) {
-	var arr = shuffledArrayOfLength(100)
-	fnc(arr)
+	var arr = shuffledArrayOfLength(4)
+	fmt.Println(arr)
+	arr = fnc(arr)
 	if !isSorted(arr) {
 		t.Errorf("array is not sorted: %v", arr)
 	}

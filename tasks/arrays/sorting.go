@@ -1,6 +1,7 @@
 package arrays
 
 import (
+	"fmt"
 	"math/rand"
 )
 
@@ -67,7 +68,7 @@ func merge(left, right []int) []int {
 		array[count] = right[j]
 		count, j = count+1, j+1
 	}
-
+	fmt.Println(array)
 	return array
 
 }
