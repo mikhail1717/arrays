@@ -26,7 +26,7 @@ func testSortFunction(t *testing.T, fnc func([]int) []int) {
 	var arr = shuffledArrayOfLength(20)
 	fmt.Println(arr)
 	fmt.Println()
-	arr = fnc(arr)
+	fnc(arr)
 	if !isSorted(arr) {
 		t.Errorf("array is not sorted: %v", arr)
 	}

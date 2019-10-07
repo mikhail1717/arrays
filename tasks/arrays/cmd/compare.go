@@ -26,7 +26,7 @@ func main() {
 	fmt.Println("")
 	fmt.Println("Сортировка ")
 
-	arrays.MergeSort(arr1)
+	arrays.HeapSort(arr1)
 	arrays.BubbleSort(arr2)
 
 	fmt.Println("")

@@ -40,34 +40,42 @@ func MergeSort(array []int) []int {
 	if len(array) < 2 {
 		return array
 	}
-
 	mid := len(array) / 2
 
-	return merge(MergeSort(array[:mid]), MergeSort(array[mid:]))
-}
+	var leftArr []int
+	var rightArr []int
 
-func merge(left, right []int) []int {
-	size, i, j := len(left)+len(right), 0, 0
-	array := make([]int, size, size)
-	count := 0
-
-	for i < len(left) && j < len(right) {
-		if left[i] <= right[j] {
-			array[count] = left[i]
-			count, i = count+1, i+1
+	for i := 0; i < len(array); i++ {
+		if i < mid {
+			leftArr = append(leftArr, array[i])
 		} else {
-			array[count] = right[j]
-			count, j = count+1, j+1
+			rightArr = append(rightArr, array[i])
 		}
 	}
-	for i < len(left) {
-		array[count] = left[i]
-		count, i = count+1, i+1
+	MergeSort(leftArr)
+	MergeSort(rightArr)
+
+	for i, j := 0, 0; i < len(leftArr) || j < len(rightArr); {
+		if i < len(leftArr) && j < len(rightArr) {
+			if leftArr[i] <= rightArr[j] {
+				array[i+j] = leftArr[i]
+				i++
+			} else {
+				array[i+j] = rightArr[j]
+				j++
+			}
+		} else {
+			for i < len(leftArr) {
+				array[i+j] = leftArr[i]
+				i++
+			}
+			for j < len(rightArr) {
+				array[i+j] = rightArr[j]
+				j++
+			}
+		}
 	}
-	for j < len(right) {
-		array[count] = right[j]
-		count, j = count+1, j+1
-	}
+
 	fmt.Println(array)
 	return array
 }
@@ -97,8 +105,8 @@ func buildMaxHeap(a []int) []int {
 
 		a = maxHeapify(a, i)
 	}
-	fmt.Println(a)
-	DisplayHeap(a)
+	//fmt.Println(a)
+	//DisplayHeap(a)
 	return a
 }
 
@@ -111,20 +119,20 @@ func HeapSort(a []int) []int {
 		size--
 		maxHeapify(a[:size], 0)
 	}
-	fmt.Println()
-	fmt.Println("Here is sorted heap:")
-	DisplayHeap(a)
+	//fmt.Println()
+	//fmt.Println("Here is sorted heap:")
+	//DisplayHeap(a)
 	return a
 }
 
 func DisplayHeap(heap []int) {
 	for a, b := 0, 1; a < len(heap); a = b {
-		fmt.Println("Print from", a, "to", b)
+		//fmt.Println("Print from", a, "to", b)
 		if b < len(heap) {
-			fmt.Println(heap[a:b])
+			//fmt.Println(heap[a:b])
 			b = a*2 + 1
 		} else {
-			fmt.Println(heap[a:])
+			//fmt.Println(heap[a:])
 			break
 		}
 	}
