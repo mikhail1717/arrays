@@ -1,6 +1,8 @@
 package singleLinkedLists
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Node struct {
 	Value int
@@ -39,4 +41,24 @@ func (x Node) PrettyPrint() {
 		fmt.Println(t.Value)
 	}
 
+}
+
+func (first Node) Remove(y int) Node {
+
+	x := &first
+	if y == 0 {
+		first = *x.Link
+		return first
+	}
+
+	index := 1
+
+	for x := &first; x != nil; x = x.Link {
+
+		if y == index {
+			x.Link = (*x.Link).Link
+		}
+		index++
+	}
+	return first
 }

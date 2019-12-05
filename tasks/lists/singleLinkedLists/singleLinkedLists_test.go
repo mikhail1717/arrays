@@ -13,7 +13,7 @@ func TestAddElement(t *testing.T) {
 
 	x := listOfLength(10)
 
-	AddElement(x, &a)
+	AddElement(&a, x)
 
 	fmt.Println(x)
 
