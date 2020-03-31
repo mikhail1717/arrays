@@ -43,7 +43,7 @@ func (x Node) PrettyPrint() {
 
 }
 
-func (first Node) Remove(y int) Node {
+func (first Node) RemoveInd(y int) Node {
 
 	x := &first
 	if y == 0 {
@@ -57,6 +57,35 @@ func (first Node) Remove(y int) Node {
 
 		if y == index {
 			x.Link = (*x.Link).Link
+		}
+		index++
+	}
+	return first
+}
+
+func (first Node) RemoveVal(val int) Node {
+	x := &first
+	if val == first.Value {
+		first = *x.Link
+		return first
+	}
+	for x.Link != nil {
+		if x.Link.Value == val {
+			x.Link = x.Link.Link
+			return first
+		}
+		x = x.Link
+	}
+
+	return first
+}
+
+func (first Node) GetVal(y int) Node {
+	index := 0
+	for x := &first; x != nil; x = x.Link {
+
+		if y == index {
+			fmt.Println(x.Value)
 		}
 		index++
 	}

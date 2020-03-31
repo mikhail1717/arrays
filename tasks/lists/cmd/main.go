@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"lists/singleLinkedLists"
+	"github.com/mikhail1717/hw/tasks/lists/singleLinkedLists"
 	"math/rand"
 )
 
@@ -19,6 +19,7 @@ func main() {
 	b.Link = &t
 
 	singleLinkedLists.AddElement(&a, &singleLinkedLists.Node{10, nil})
+	singleLinkedLists.AddElement(&a, &singleLinkedLists.Node{17, nil})
 
 	fmt.Println("Начало")
 
@@ -26,8 +27,10 @@ func main() {
 
 	fmt.Println("конец")
 
-	a = a.Remove(3)
-
-	a.PrettyPrint()
+	//a = a.RemoveVal(47)
+	//a = a.RemoveInd(2)
+	//a = a.Remove(10)
+	//a.PrettyPrint()
+	a = a.GetVal(4)
 
 }

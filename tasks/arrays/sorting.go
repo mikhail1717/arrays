@@ -127,12 +127,12 @@ func HeapSort(a []int) []int {
 
 func DisplayHeap(heap []int) {
 	for a, b := 0, 1; a < len(heap); a = b {
-		//fmt.Println("Print from", a, "to", b)
+		fmt.Println("Print from", a, "to", b)
 		if b < len(heap) {
-			//fmt.Println(heap[a:b])
+			fmt.Println(heap[a:b])
 			b = a*2 + 1
 		} else {
-			//fmt.Println(heap[a:])
+			fmt.Println(heap[a:])
 			break
 		}
 	}
