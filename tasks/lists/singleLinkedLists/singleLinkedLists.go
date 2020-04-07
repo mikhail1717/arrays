@@ -91,3 +91,19 @@ func (first Node) GetVal(y int) Node {
 	}
 	return first
 }
+
+func GetListOffArray(x []int) Node {
+
+	fmt.Println("Список")
+	var first Node
+	first.Value = x[0]
+
+	for i := 1; i < len(x); i++ {
+
+		AddElement(&first, &Node{x[i], nil})
+
+	}
+	first.PrettyPrint()
+	return first
+
+}

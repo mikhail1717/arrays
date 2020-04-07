@@ -32,7 +32,7 @@ func listOfLength(l int) *Node {
 	firstNode := &Node{rand.Intn(100), nil}
 	x := firstNode
 	for i := 0; i < l-1; i++ {
-		// создаем новую нода с указаталем на ноль
+		// создаем новую ноду с указаталем на ноль
 		nextNode := &Node{rand.Intn(100), nil}
 		// x ноде присвоить указатель на следующую
 		x.Link = nextNode
