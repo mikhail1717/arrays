@@ -33,8 +33,8 @@ func main() {
 	for i := 0; i < 10; i++ {
 		x = append(x, rand.Int()%100)
 	}
-	fmt.Println("Массив")
-	fmt.Println(x)
+	//fmt.Println("Массив")
+	//fmt.Println(x)
 
 	//a = a.RemoveVal(47)
 	//a = a.RemoveInd(2)
@@ -42,7 +42,7 @@ func main() {
 	//a.PrettyPrint()
 	//a = a.GetVal(4)
 	//singleLinkedLists.Array()
-	singleLinkedLists.GetListOffArray(x)
-	//singleLinkedLists.Ttest()
+	//singleLinkedLists.GetListOffArray(x)
+	singleLinkedLists.GetArrayOffList(a)
 
 }

@@ -107,3 +107,17 @@ func GetListOffArray(x []int) Node {
 	return first
 
 }
+
+func GetArrayOffList(first Node) []int {
+
+	fmt.Println("Массив")
+	var x []int
+
+	for i := &first; i != nil; i = i.Link {
+
+		x = append(x, i.Value)
+	}
+	fmt.Println(x)
+
+	return x
+}
