@@ -38,7 +38,7 @@ func LengthOfList(list *Node) int {
 func (x Node) PrettyPrint() {
 
 	for t := &x; t != nil; t = t.Link {
-		fmt.Println(t.Value)
+		fmt.Println(t)
 	}
 
 }
@@ -120,4 +120,11 @@ func GetArrayOffList(first Node) []int {
 	fmt.Println(x)
 
 	return x
+}
+
+func (first *Node) IterationOffList(oper func(x *Node)) {
+
+	for i := first; i != nil; i = i.Link {
+		oper(i)
+	}
 }

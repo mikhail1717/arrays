@@ -29,10 +29,6 @@ func main() {
 
 	fmt.Println("конец")
 
-	var x []int
-	for i := 0; i < 10; i++ {
-		x = append(x, rand.Int()%100)
-	}
 	//fmt.Println("Массив")
 	//fmt.Println(x)
 
@@ -43,6 +39,13 @@ func main() {
 	//a = a.GetVal(4)
 	//singleLinkedLists.Array()
 	//singleLinkedLists.GetListOffArray(x)
-	singleLinkedLists.GetArrayOffList(a)
+	//singleLinkedLists.GetArrayOffList(a)
+
+	a.IterationOffList(func(x *singleLinkedLists.Node) {
+
+		x.Value = x.Value + 1
+
+	})
+	a.PrettyPrint()
 
 }
