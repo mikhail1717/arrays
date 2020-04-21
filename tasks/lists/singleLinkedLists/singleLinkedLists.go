@@ -21,17 +21,18 @@ func AddElement(first, new *Node) {
 
 func LengthOfList(list *Node) int {
 
-	x := 0
+	i := 0
 
-	for i := 0; list.Link != nil; i++ {
+	for x := list; x != nil; list = list.Link {
 		if list.Link != nil {
-			x += 1
+			i += 1
 		} else {
-			x += 1
+			i += 1
+			break
 		}
-	}
 
-	return x
+	}
+	return i
 
 }
 
@@ -80,16 +81,19 @@ func (first Node) RemoveVal(val int) Node {
 	return first
 }
 
-func (first Node) GetVal(y int) Node {
+func (first *Node) GetValbyIndex(y int) int {
+
 	index := 0
-	for x := &first; x != nil; x = x.Link {
+	for x := first; x != nil; x = x.Link {
 
 		if y == index {
 			fmt.Println(x.Value)
+			return x.Value
 		}
 		index++
+
 	}
-	return first
+	return first.Value
 }
 
 func GetListOffArray(x []int) Node {
